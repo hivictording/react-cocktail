@@ -1,13 +1,24 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  src: url(./static/fonts/Aladin-Regular.ttf);
+  font-family: font-script;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  src: url(./static/fonts/Buenard-Regular.ttf);
+  font-family: font-primary;
+}
+@font-face {
+  src: url(./static/fonts/Buenard-Bold.ttf);
+  font-family: font-primary-bold;
+}
+@font-face {
+  src: url(./static/fonts/Livvic-Regular.ttf);
+  font-family: font-secondary;
+}
+@font-face {
+  src: url(./static/fonts/Livvic-Bold.ttf);
+  font-family: font-secondary-bold;
+}
+@font-face {
+  src: url(./static/fonts/Livvic-Italic.ttf);
+  font-family: font-secondary-italic;
 }
