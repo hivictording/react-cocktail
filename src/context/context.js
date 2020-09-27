@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { useCocktail } from "../hooks/useCocktail";
+import { useCocktails } from "../hooks/useCocktails";
 
 const DataContext = React.createContext();
 
 const DataProvider = ({ children }) => {
-  const [search, setSearch] = useCocktail();
+  const [search, setSearch] = useState();
+
+  const [cocktails] = useCocktails(search);
+
+  const handleSearchChange = (event) => {
+    setSearch(event.target.value);
+  };
+
   return (
-    <DataContext.Provider value={{ search, setSearch }}>
+    <DataContext.Provider
+      value={{ search, setSearch, cocktails, handleSearchChange }}
+    >
       {children}
     </DataContext.Provider>
   );

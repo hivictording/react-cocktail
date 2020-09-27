@@ -1,7 +1,13 @@
 import React from "react";
 
-const Cocktail = () => {
-  return <div>Hello from single cocktail</div>;
+const Cocktail = ({ idDrink, strDrink }) => {
+  return (
+    <article>
+      <h5>
+        {idDrink}: {strDrink}
+      </h5>
+    </article>
+  );
 };
 
 export default Cocktail;

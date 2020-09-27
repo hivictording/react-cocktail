@@ -6,14 +6,19 @@ import Cocktail from "./cocktail";
 import { DataContext } from "../../context/context";
 
 const CocktailList = () => {
-  // const [search, setSearch] = useCocktail();
-
   const context = useContext(DataContext);
-  // const
+  const { cocktails } = context;
+
   return (
-    <article>
-      <Cocktail />
-    </article>
+    <>
+      {cocktails ? (
+        cocktails.map((cocktail) => (
+          <Cocktail key={cocktail.idDrink} {...cocktail} />
+        ))
+      ) : (
+        <h2>No Cocktail Found</h2>
+      )}
+    </>
   );
 };
 
