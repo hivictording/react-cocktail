@@ -10,6 +10,7 @@ const Search = () => {
     <div>
       <input
         type="text"
+        name="search"
         className="form-control w-75 mx-auto"
         placeholder="Search Cocktail"
         onChange={handleSearchChange}

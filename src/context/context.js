@@ -5,9 +5,9 @@ import { useCocktails } from "../hooks/useCocktails";
 const DataContext = React.createContext();
 
 const DataProvider = ({ children }) => {
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState("");
 
-  const [cocktails] = useCocktails(search);
+  const [cocktails, loading, error] = useCocktails(search);
 
   const handleSearchChange = (event) => {
     setSearch(event.target.value);
@@ -15,7 +15,14 @@ const DataProvider = ({ children }) => {
 
   return (
     <DataContext.Provider
-      value={{ search, setSearch, cocktails, handleSearchChange }}
+      value={{
+        search,
+        setSearch,
+        cocktails,
+        loading,
+        error,
+        handleSearchChange,
+      }}
     >
       {children}
     </DataContext.Provider>

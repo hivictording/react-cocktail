@@ -1,10 +1,10 @@
 import React from "react";
 
-const Cocktail = ({ idDrink, strDrink }) => {
+const Cocktail = ({ id, name, image }) => {
   return (
     <article>
       <h5>
-        {idDrink}: {strDrink}
+        {id}: {name} : {image}
       </h5>
     </article>
   );

@@ -7,13 +7,16 @@ import { DataContext } from "../../context/context";
 
 const CocktailList = () => {
   const context = useContext(DataContext);
-  const { cocktails } = context;
+  const { cocktails, loading, error } = context;
+  console.log(cocktails[0]);
 
   return (
     <>
-      {cocktails ? (
+      {loading && <h2>Loading Data.....</h2>}
+      {!loading && error && <h2>{error}</h2>}
+      {!loading && cocktails ? (
         cocktails.map((cocktail) => (
-          <Cocktail key={cocktail.idDrink} {...cocktail} />
+          <Cocktail key={cocktail.id} {...cocktail} />
         ))
       ) : (
         <h2>No Cocktail Found</h2>
