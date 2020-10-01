@@ -10,6 +10,7 @@ const DataProvider = ({ children }) => {
   const [cocktails, loading, error] = useCocktails(search);
 
   const handleSearchChange = (event) => {
+    console.log(event.target.value);
     setSearch(event.target.value);
   };
 

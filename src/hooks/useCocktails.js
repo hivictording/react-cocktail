@@ -11,13 +11,18 @@ export const useCocktails = (search) => {
 
   useEffect(() => {
     setLoading(true);
+
     const fetchData = async () => {
+      let newCocktails = [];
+      let newError = "";
       if (search) {
         try {
           const response = await axios.get(`${baseURL}${search}`);
+
+          // if (response) {
           const data = response.data.drinks;
-          console.log(data);
-          const mappedCocktails = data.map((item) => {
+          // newCocktails
+          newCocktails = data.map((item) => {
             const { idDrink, strDrink, strDrinkThumb, strInstructions } = item;
             let ingredients = [];
             for (const [key, value] of Object.entries(item)) {
@@ -25,7 +30,6 @@ export const useCocktails = (search) => {
                 ingredients.push(value);
               }
             }
-            // const chineseName = item[strDrinkZH - HANS];
 
             return {
               id: idDrink,
@@ -35,14 +39,19 @@ export const useCocktails = (search) => {
               instructions: strInstructions,
             };
           });
-
-          setCocktails(mappedCocktails);
+          // end of newCocktails
+          newError = "";
         } catch (error) {
-          setError("Error Fetching Data From Backend");
+          newError = "No Cocktails Found";
+          newCocktails = [];
         }
       } else {
-        setCocktails([]);
+        newError = "";
+        newCocktails = [];
       }
+
+      setError(newError);
+      setCocktails(newCocktails);
     };
 
     fetchData();
