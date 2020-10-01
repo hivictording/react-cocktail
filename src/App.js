@@ -8,6 +8,7 @@ import NavBar from "./components/navBar";
 import HomePage from "./pages/homePage";
 import AboutPage from "./pages/aboutPage";
 import DefaultPage from "./pages/defaultPage";
+import SingleCocktail from "./pages/singleCocktail";
 
 const GlobalStyles = createGlobalStyle`
 
@@ -61,6 +62,9 @@ function App() {
           </Route>
           <Route exact path="/about">
             <AboutPage />
+          </Route>
+          <Route exact path="/cocktail/:id">
+            <SingleCocktail />
           </Route>
           <Route>
             <DefaultPage />
