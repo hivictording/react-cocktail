@@ -1,10 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 
 import { DataContext } from "../../context/context";
 
 const Search = () => {
   const context = useContext(DataContext);
-  const { search, handleSearchChange } = context;
+  const { setSearch } = context;
+
+  const searchInput = useRef("");
+
+  const handleChange = (event) => {
+    setSearch(searchInput.current.value);
+  };
+
+  useEffect(() => {
+    searchInput.current.focus();
+  });
 
   return (
     <div>
@@ -13,8 +23,9 @@ const Search = () => {
         name="search"
         className="form-control w-75 mx-auto"
         placeholder="Search Cocktail"
-        onChange={handleSearchChange}
-        value={search}
+        onChange={handleChange}
+        // value={search}
+        ref={searchInput}
       />
     </div>
   );

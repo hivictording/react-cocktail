@@ -63,7 +63,7 @@ function App() {
           <Route exact path="/about">
             <AboutPage />
           </Route>
-          <Route exact path="/cocktail/:id">
+          <Route exact path="/cocktail/:name">
             <SingleCocktail />
           </Route>
           <Route>
